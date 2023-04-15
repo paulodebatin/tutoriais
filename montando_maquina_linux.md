@@ -24,11 +24,35 @@ Depois disso, você precisa reiniciar a máquina. Entre no terminal. A primeira 
 ###### 2) Instalar GIT
 sudo apt install git
 
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+Gerar uma chave SSH
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+
+
 ###### 3) Instalar themes para zsh
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+→ para verficiar digite env
+sudo apt install fonts-powerline -y
+
+Para ver os themes: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
+Mudando o theme: sudo nano ~/.zshrc 
 
 
-https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-Para escolher os temas: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-cd ~
-sudo nano .zshrc
-Depois preciso recarreger usando o camando: source .zshrc 
+- Instalar plugin AutoSuggestion
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+sudo nano ~/.zshrc
+plugins=( 
+    # other plugins...
+    zsh-autosuggestions
+)
+restart o terminal
+
+
+- Instalar notepad++
+sudo snap install snapd
+sudo snap install notepad-plus-plus

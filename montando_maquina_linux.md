@@ -27,10 +27,20 @@ sudo apt install git
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
-Gerar uma chave SSH
-ssh-keygen
-cat ~/.ssh/id_rsa.pub
+Gerar uma chave SSH:
+ssh-keygen -t ed25519 -C "your_email@example.com" --> vai dando enter
 
+Adding your SSH key to the ssh-agen:
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+
+Copiar a chave: 
+cat ~/.ssh/id_ed25519.pub
+
+No github, settings > SSH and GPG keys e adione a chave
+
+Depois disso pode clonar o projeto pegando o link com SSH e não HTTP
 
 ###### 3) Instalar themes para zsh
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
@@ -53,6 +63,11 @@ plugins=(
 restart o terminal
 
 
-- Instalar notepad++
+###### 4) Instalar notepad++
 sudo snap install snapd
 sudo snap install notepad-plus-plus
+
+
+###### 5) Outas instalações
+Visual Code:
+Baixar o arquivo .deb da página https://code.visualstudio.com/docs/?dv=linux64_deb e sudo apt install home/paulo/Transferências/code_1.77.3-1681292746_amd64.deb

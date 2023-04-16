@@ -1,6 +1,6 @@
 ##### Tutorial de criação de uma máquina para desenvolvimento do zero no Ubuntu
 
-**Instalação do Linux Ubuntu:
+<strong>Instalação do Linux Ubuntu:</strong>
 
 a) Baixe a ISO do Ubuntu Desktop no site https://releases.ubuntu.com/jammy/. No momento da montagem deste tutorial a versão era a 22.04.2
 b) Baixar o programa para criação de um pendrive bootável a partir da ISO.
@@ -12,7 +12,7 @@ Na BIOS, o security boot precisa estar desabilitado. O modo de boot precisa ser 
 
 ---
 
-Instalar Shell ZSH:
+<strong>Instalar Shell ZSH:</strong>
 ~~~
 sudo apt-get update
 sudo apt install zsh
@@ -25,7 +25,7 @@ Depois disso, você precisa reiniciar a máquina. Entre no terminal. A primeira 
 
 ---
 
-Instalar GIT:
+<strong>Instalar GIT:</strong>
 
 sudo apt install git
 
@@ -47,7 +47,10 @@ No github, settings > SSH and GPG keys e adione a chave
 
 Depois disso pode clonar o projeto pegando o link com SSH e não HTTP
 
-###### 3) Instalar themes para zsh
+---
+
+<strong>Instalar themes para zsh:</strong>
+
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 → para verficiar digite env
 sudo apt install fonts-powerline -y
@@ -56,8 +59,10 @@ Para ver os themes: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 Mudando o theme: sudo nano ~/.zshrc 
 
+---
 
-- Instalar plugin AutoSuggestion
+<strong>Instalar plugin AutoSuggestion:</strong>
+
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 sudo nano ~/.zshrc
@@ -69,15 +74,20 @@ plugins=(
 ```
 restart o terminal
 
+---
 
-###### 4) Instalar notepad++
+<strong>Instalar notepad++:</strong>
+
 sudo snap install snapd
 sudo snap install notepad-plus-plus
 
 
-###### 5) Outas instalações
+---
+
 Visual Code:
 Baixar o arquivo .deb da página https://code.visualstudio.com/docs/?dv=linux64_deb e sudo apt install home/paulo/Transferências/code_1.77.3-1681292746_amd64.deb
+
+---
 
 Docker: 
 https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository
@@ -114,6 +124,11 @@ Depois: tar xfz ~/
 
 --- 
 
+Intelij:
+sudo snap install intellij-idea-community --classic
+
+---
+
 Gerenciadores de versões Node (nvm)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash --> Depois feche a abra novamente o terminal e digite: nvm --version
 
@@ -125,3 +140,41 @@ Instalar uma versão: nvm install v19.9.0
 Usar uma versão específica: nvm use <versão>
 
 ---
+
+(***Com erro) Gerenciando versões Python (Pyenv):
+sudo apt-get install build-essential
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+```
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
+echo 'eval "$(pyenv init --path)"' >> ~/.profile
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
+echo 'eval "$(pyenv init --path)"' >> ~/.zprofile
+```
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+
+Reiniciar
+
+Ver versões: pyenv install --list
+Instalando versões: pyenv install 3.11.3 
+Definindo versão global: pyenv global 3.11.3 
+Definindo versão de uma pasta: pyenv local 3.11.3 
+
+---
+
+Instalar DBeaver:
+
+curl -fsSL https://dbeaver.io/debs/dbeaver.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/dbeaver.gpg
+
+echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+
+sudo apt update
+
+sudo apt install dbeaver-ce
+
+---
+
+
+

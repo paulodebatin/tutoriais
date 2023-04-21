@@ -176,5 +176,8 @@ sudo apt install dbeaver-ce
 
 ---
 
+Instação Jenkis:
+Baixar o war https://www.jenkins.io/download/
+Depois java -jar <arquivo war>
 
 

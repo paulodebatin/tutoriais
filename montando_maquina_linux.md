@@ -84,12 +84,14 @@ sudo snap install notepad-plus-plus
 
 ---
 
-Visual Code:
+<strong>Visual Code:</strong>
+
 Baixar o arquivo .deb da página https://code.visualstudio.com/docs/?dv=linux64_deb e sudo apt install home/paulo/Transferências/code_1.77.3-1681292746_amd64.deb
 
 ---
 
-Docker: 
+<strong>Docker:</strong> 
+
 https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository
 
 -> Dar permissão ao seu usuário:
@@ -100,13 +102,15 @@ reboot
 
 ---
 
-Chrome:
+<strong>Chrome:</strong>
+
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 ---
 
-Gerenciador de versões Java (sdkman):
+<strong>Gerenciador de versões Java (sdkman):</strong>
+
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
@@ -118,18 +122,21 @@ Ver a versão corrente: sdk current java
 
 ---
 
-Eclipse:
+<strong>Eclipse:</strong>
+
 Baixe o arquivo em https://www.eclipse.org/downloads/packages/
 Depois: tar xfz ~/
 
 --- 
 
-Intelij:
+<strong>Intelij:</strong>
+
 sudo snap install intellij-idea-community --classic
 
 ---
 
-Gerenciadores de versões Node (nvm)
+<strong>Gerenciadores de versões Node (nvm)</strong>
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash --> Depois feche a abra novamente o terminal e digite: nvm --version
 
 Ver versões:
@@ -141,7 +148,8 @@ Usar uma versão específica: nvm use <versão>
 
 ---
 
-(***Com erro) Gerenciando versões Python (Pyenv):
+<strong>(***Com erro) Gerenciando versões Python (Pyenv):</strong>
+
 sudo apt-get install build-essential
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
@@ -164,7 +172,7 @@ Definindo versão de uma pasta: pyenv local 3.11.3
 
 ---
 
-Instalar DBeaver:
+<strong>Instalar DBeaver:</strong>
 
 curl -fsSL https://dbeaver.io/debs/dbeaver.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/dbeaver.gpg
 
@@ -176,8 +184,94 @@ sudo apt install dbeaver-ce
 
 ---
 
-Instação Jenkis:
+<strong>Instação Jenkis:</strong>
+
 Baixar o war https://www.jenkins.io/download/
 Depois java -jar <arquivo war>
 
+
+---
+
+<strong>Compartilhamento de arquivos entre sistemas Windows e Linux:</strong>
+
+a) Mandando do Windows para o Linux:
+
+a1) Na máquina Linux
+Instalr o samba: sudo apt-get install samba
+Adicionar o usuário: sudo smbpasswd -a <usuario>
+Compartilhar uma pasta por exemplo na área de trabalho
+Pegar o número do ip: hostname -I
+
+a2) Na máquina Windows basta acessar pelo IP: \\192.168.....
+
+---
+
+<strong>Instalação TMUX:</strong>
+
+sudo apt install tmux 
+Dividir painel na vertical: CTRL+B, % 
+Dividir painel na horizontal: CTRL+B, “ 
+Navegar entre os paineis CTRL+B, setas 
+Eliminar o painel: CTRL+B, x 
+Listas as sessoes: tmux ls 
+Restaurar uma sessão fechada: tmux attach-session -t 
+Matar definitivamente a session: tmux kill-session -t
+
+---
+
+<strong>Ngrok:</strong>
+
+snap install ngrok
+
+Cria uma conta e faça a autenticação a) Cadastro em: https://dashboard.ngrok.com/login b) Gerando o token: Authentication (lado esquerdo do menu) > Your Authtoken c) Autenticando localmente: ./ngrok authtoken Será gerado o arquivo ngrok.yml em disco. Em linux, geramente em /home/user. Ex: /home/paulo/.ngrok2/ngrok.yml
+
+Expondo uma porta ./ngrok http 8080
+
+Protegendo seu tunel com senha ./ngrok http -auth="paulo:senha123" 8000
+
+Ajuda ./ngrok help
+
+Interface para verificar as requisições http://127.0.0.1:4040/
+
+---
+
+<strong>Criando atalho:</strong>
+
+Crie o arquivo de atalho conforme exemplo:
+sudo nano /usr/share/applications/eclipse.desktop
+
+Cole o seguinte conteúdo no arquivo eclipse.desktop:
+```
+[Desktop Entry]
+Name=Eclipse
+Type=Application
+Exec=/usr/share/eclipse/eclipse
+Terminal=false
+Icon=/usr/share/eclipse/icon.xpm
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=Eclipse
+```
+
+Se não der certo, crie o aquivo em outra pasta:
+nano ~/.local/share/applications/eclipse.desktop
+
+E cole o mesmo conteúdo acima.
+
+---
+
+<strong>Outras configurações no Linux:</strong>
+
+Ative o Minimize ao clicar:
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+---
+
+<strong>PostMan</strong>
+
+curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+tar zxvf postman-linux-x64.tar.gz  
+
+Após só criar um atalho para a pasta onde foi descompactado.
 

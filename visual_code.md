@@ -1,4 +1,4 @@
-###### Plugins
+###### Plugins utilizados
 
 Markdown Preview Enhanced
 Live Server
